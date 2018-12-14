@@ -11,6 +11,7 @@ services:
       - outside
     volumes:
       - /time/DB:/data/db
+      - /data/Dump:/data/Dump
       # - ./mongod.conf:/etc/mongod.conf
     # command: mongod --config /etc/mongod.conf
     command: mongod 
