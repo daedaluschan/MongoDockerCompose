@@ -13,13 +13,11 @@ services:
     volumes:
       - /time/DB:/data/db
       - /data/Dump:/data/Dump
-      # - ./mongod.conf:/etc/mongod.conf
-    # command: mongod --config /etc/mongod.conf
-    # command: mongod 
+      - ./mongod.conf:/etc/mongod.conf
     command: >
       bash -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && 
       echo $TZ > /etc/timezone &&
-      mongod"
+      mongod --config /etc/mongod.conf"
 networks:
   outside:
     external:
